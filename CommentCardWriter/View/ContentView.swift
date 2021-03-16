@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//all that you need for MVP is a "next div" button and maybe a "GEnerate" button
+
 struct ContentView: View {
     
     @State private var happy = false
@@ -98,6 +100,15 @@ struct ContentView: View {
                 VStack {
                     Text("Teacher: DPC")
                     Text("Div: vCX-1")
+                }
+                HStack {
+                    //generate comment card button
+                    Button("Generate Comment", action: {})
+                        .padding()
+                    Spacer()
+                    //next div button
+                    Button("Next Div", action: {})
+                        .padding()
                 }
                 Form {
                     Section(header: Text("Attitude") ) {
