@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-//all that you need for MVP is a "next div" button and maybe a "GEnerate" button
+//need a back arrow in top left corner (to take you back to home screen)
+//of course, all choices should be saved when you do that
 
 struct ContentView: View {
     
@@ -124,6 +125,14 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Data Collection")
+            .toolbar {
+                //this arrow and stuff is created automatically when you use a navigationLink. I recommend you use that instead of this
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { }) {
+                        Image(systemName: "arrowshape.turn.up.left")
+                    }
+                }
+            }
         }
     }
 }

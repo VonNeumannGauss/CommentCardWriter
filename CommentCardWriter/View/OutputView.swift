@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+//back button to take you to data collection page - top left
+//finish button to take you back to menu
+//use NavigationLink for all of these buttons
+
+//of course you want the generated comment to be stored somewhere
+
 struct OutputView: View {
     
     @State var textInput: String = "Otherwise, insert a new comment here"
