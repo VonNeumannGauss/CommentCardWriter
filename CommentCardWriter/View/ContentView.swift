@@ -100,14 +100,7 @@ struct ContentView: View {
                 VStack {
                     Text("Teacher: DPC")
                     Text("Div: vCX-1")
-                }
-                HStack {
-                    //generate comment card button
                     Button("Generate Comment", action: {})
-                        .padding()
-                    Spacer()
-                    //next div button
-                    Button("Next Div", action: {})
                         .padding()
                 }
                 Form {
