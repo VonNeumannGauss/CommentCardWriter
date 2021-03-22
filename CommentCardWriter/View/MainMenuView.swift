@@ -13,6 +13,7 @@ import SwiftUI
 struct MainMenuView: View {
     var body: some View {
         //use a list to display all divisions
+        //NO - use a scrolling roller thing to select the division
         Text("HELLO")
     }
 }
