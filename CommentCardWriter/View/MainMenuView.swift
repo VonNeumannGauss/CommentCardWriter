@@ -12,7 +12,8 @@ import SwiftUI
 
 struct MainMenuView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //use a list to display all divisions
+        Text("HELLO")
     }
 }
 
