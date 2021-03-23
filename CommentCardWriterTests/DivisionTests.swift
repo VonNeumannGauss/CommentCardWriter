@@ -42,7 +42,7 @@ class DivisionTests: XCTestCase {
         //act
         myDivision.inputs = [false, false, false, false, false, false, false, false, false, false]
         //assert
-        XCTAssertEqual(myDivision.produceOutput(), "I'm not happy. I'm not engaged. I'm not challenged. ")
+        XCTAssertEqual(myDivision.produceOutput(), "I'm not happy. I'm not engaged. I'm not challenged. The teacher is going too slow. The teacher is not explaining everything. ")
     }
 
 }

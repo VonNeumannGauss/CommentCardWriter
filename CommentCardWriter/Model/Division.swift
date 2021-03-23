@@ -26,14 +26,19 @@ class Division {
     }
     
     func produceOutput() -> String {
-        let dictionaryOfSentences = [0: ["I'm happy."], 1: ["I'm engaged."], 2: ["I'm challenged."], 3: ["I'm working hard."], 4: ["I'm working smart."], 5: ["I'm happy with my EWs."], 6: ["I need to work harder."], 7: ["The teacher is going too fast."], 8: ["The teacher is explaining everything."], 9: ["The lessons are enjoyable."]]
+        let dictionaryOfSentences = [0: ["I'm happy.", "I'm not happy."], 1: ["I'm engaged.", "I'm not engaged."], 2: ["I'm challenged.", "I'm not challenged."], 3: ["I'm working hard."], 4: ["I'm working smart."], 5: ["I'm happy with my EWs."], 6: ["I need to work harder."], 7: ["The teacher is going too fast.", "The teacher is going too slow."], 8: ["The teacher is explaining everything.", "The teacher is not explaining everything."], 9: ["The lessons are enjoyable."]]
         
         var overallParagraph: String = ""
         for i in 0..<inputs.count {
             if inputs[i] {
                 overallParagraph += "\(dictionaryOfSentences[i]![0]) "
             } else {
-                overallParagraph += "\(dictionaryOfSentences[i]![0]) "
+                let theListInDictionary = dictionaryOfSentences[i]!
+                let lengthOfList = theListInDictionary.count
+                if lengthOfList > 1 {
+                    overallParagraph += "\(dictionaryOfSentences[i]![1]) "
+                }
+
             }
         }
         
