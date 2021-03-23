@@ -45,4 +45,15 @@ class Division {
         return overallParagraph
     }
     
+    #if DEBUG
+    
+    static func createDivisions() -> [Division] {
+        let myDivisions: [Division] = [Division(code: "vCX-1", teacherName: "DPC"), Division(code: "cCV-1", teacherName: "RRM"), Division(code: "MCW-1", teacherName: "RSOJ"), Division(code: "MCW-1a", teacherName: "JMS")]
+        
+        return myDivisions
+    }
+    
+    #endif
+    
+    
 }

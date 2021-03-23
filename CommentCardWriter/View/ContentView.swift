@@ -25,6 +25,8 @@ struct ContentView: View {
     @State private var teacherExplainingWell = false
     @State private var lessonsAreEnjoyable = false
     
+    @State private var selectedDiv: String = ""
+    
     
     var body: some View {
         let happyBinding = Binding<Bool> (
@@ -99,8 +101,14 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 VStack {
-                    Text("Teacher: DPC")
-                    Text("Div: vCX-1")
+                    Picker("Please choose a div", selection: $selectedDiv) {
+                        ForEach(Division.createDivisions(), id: \.self.code) {
+                            Text($0.code)
+                        }
+                    }
+                    
+                    Text("Division: \(selectedDiv)")
+                    
                     Button("Generate Comment", action: {})
                         .padding()
                 }
