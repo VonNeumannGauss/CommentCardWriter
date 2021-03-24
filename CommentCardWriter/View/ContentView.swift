@@ -14,8 +14,9 @@ struct ContentView: View {
     
     @State private var inputs: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     
-    @State private var selectedDiv: String = ""
+    @State private var selectedDiv: Division = Division.createDivisions()[0]
     
+    @State private var chosenDiv: String = ""
     
     var body: some View {
         
@@ -28,7 +29,7 @@ struct ContentView: View {
                         }
                     }
                     
-                    Text("Division: \(selectedDiv)")
+                    Text("Division: \(selectedDiv.code)")
                     
                     Button("Generate Comment", action: {})
                         .padding()

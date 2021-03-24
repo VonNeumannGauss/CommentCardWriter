@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Division {
+class Division: Hashable {
     let code: String
     let teacherName: String
     var inputs: [Bool] = []
@@ -15,6 +15,15 @@ class Division {
     init(code: String, teacherName: String) {
         self.code = code
         self.teacherName = teacherName
+    }
+    
+    //to make this data type Hashable
+    static func == (div1: Division, div2: Division) -> Bool {
+        return (div1.code == div2.code)
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(code)
     }
     
     func returnInputs() -> [Bool] {
