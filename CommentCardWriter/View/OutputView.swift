@@ -18,6 +18,8 @@ struct OutputView: View {
     @State var textInput: String = "Otherwise, insert a new comment here"
     @State var toggleHappyWithGeneratedContent: Bool = true
     
+    @State var division: Division
+    
     var body: some View {
         
         let textInputBinding = Binding<String> (
@@ -30,12 +32,12 @@ struct OutputView: View {
         NavigationView {
             VStack {
                 VStack {
-                    Text("Teacher: DPC")
-                    Text("Div: vCX-1")
+                    Text("Teacher: \(division.teacherName)")
+                    Text("Div: \(division.code)")
                 }
                 Form {
                     Section(header: Text("Generated comment")) {
-                        Text("I am enjoying CS and loving the hands-on, engaging approach to teaching and learning!")
+                        Text(division.produceOutput())
                             .padding()
                         Toggle("Happy with the generated content?", isOn: $toggleHappyWithGeneratedContent)
                             .padding()
@@ -51,6 +53,6 @@ struct OutputView: View {
 
 struct OutputView_Previews: PreviewProvider {
     static var previews: some View {
-        OutputView()
+        OutputView(division: Division(code: "vCX-1", teacherName: "DPC"))
     }
 }

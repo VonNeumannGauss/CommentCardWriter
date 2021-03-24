@@ -30,6 +30,10 @@ class Division: Hashable {
         return inputs
     }
     
+    func makeInputs(newInputs: [Bool]) {
+        self.inputs = newInputs
+    }
+    
     func returnCodeAndName() -> [String] {
         return [code, teacherName]
     }

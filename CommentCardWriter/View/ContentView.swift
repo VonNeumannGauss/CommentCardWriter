@@ -14,25 +14,48 @@ struct ContentView: View {
     
     @State private var inputs: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     
-    @State private var selectedDiv: Division = Division.createDivisions()[0]
-    
     @State private var chosenDiv: String = ""
+    
+    func returnDivision(divisions: [Division], code: String) -> Division? {
+        for division in divisions {
+            if division.code == code {
+                return division
+            }
+        }
+        
+        return nil
+    }
+    
+    func returnInputs() -> [Bool] {
+        return self.inputs
+    }
+    
+    func generateComment() -> Division {
+        if let division = returnDivision(divisions: Division.createDivisions(), code: chosenDiv) {
+            division.makeInputs(newInputs: returnInputs())
+            return division
+        }
+        return Division(code: "", teacherName: "")
+    }
+
     
     var body: some View {
         
         NavigationView {
             VStack {
                 VStack {
-                    Picker("Please choose a div", selection: $selectedDiv) {
+                    Picker("Please choose a div", selection: $chosenDiv) {
                         ForEach(Division.createDivisions(), id: \.self.code) {
                             Text($0.code)
                         }
                     }
                     
-                    Text("Division: \(selectedDiv.code)")
-                    
-                    Button("Generate Comment", action: {})
+                    Text("Division: \(chosenDiv)")
                         .padding()
+                    
+                    NavigationLink(destination: OutputView(division: generateComment())) {
+                        Text("Generate Comment")
+                    }
                 }
                 Form {
                     Section(header: Text("Attitude") ) {
@@ -55,21 +78,9 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Data Collection")
-            .toolbar {
-                //this arrow and stuff is created automatically when you use a navigationLink. I recommend you use that instead of this
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { }) {
-                        Image(systemName: "arrowshape.turn.up.left")
-                    }
-                }
-            }
         }
     }
-    
-    func returnInputs() -> [Bool] {
-        return self.inputs
-    }
-    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
