@@ -14,7 +14,7 @@ struct ContentView: View {
     
     @State private var inputs: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     
-    @State private var chosenDiv: String = ""
+    @State private var chosenDiv: String = Division.createDivisions()[0].code
     
     func returnDivision(divisions: [Division], code: String) -> Division? {
         for division in divisions {
